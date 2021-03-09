@@ -20,3 +20,20 @@
 
     echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc
 
+### Installing Dotfiles on new System
+
+* Add the dotfiles alias to .zshrc
+* dotfiles repository has to ignore the place where it is cloned to
+
+    echo ".dotfiles" >> .gitignore
+
+* Clone the dotfiles Repository
+
+    git clone --bare <git-repo-url> $HOME/.dotfiles
+
+* Checkout content - dotfiles checkout
+* If checkout fails, delete default configuration files
+* set status.showUntrackedFiles no
+
+
+

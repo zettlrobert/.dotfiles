@@ -35,5 +35,8 @@
 * If checkout fails, delete default configuration files
 * set status.showUntrackedFiles no
 
+## Installation Script
+The installation script is located inside .dotfiles, setup.sh
 
+    ./setup.sh
 

@@ -71,12 +71,11 @@ PACKAGES=(
 for package in "${PACKAGES[*]}";
 do
     sudo apt install $package -y
-    echo -e "Installing $package...\n"
     if [ $? = 0 ]
     then
-        echo -e "${green}$1${NC}"
+        echo -e "${green}OK${NC}: $package successfully installed"
     else
-        echo -e "${red}$1${NC}"
+        echo -e "${red}Fail${NC}: $package installation failed"
     fi
 done
 

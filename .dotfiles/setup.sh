@@ -9,13 +9,12 @@ NC='\e[0m' # No Color
 echo -e "Setup Script starting...\n"
 
 
-
-
 # Array of Packages
 # TOOLS
 #####################################################
 #      "zsh"             # Shell with lots of features
 #      "kitty"           # GPU based Terminal
+#      "ranger"          # Filemanager
 #      "ripgrep"         # Recursively searches directories for a regex pattern
 #      "xclip"           # command line interface to X selections  
 #      "timeshift"       # System restore utility
@@ -42,12 +41,16 @@ echo -e "Setup Script starting...\n"
 #      "fonts-powerline"      # prompt and statusline utility
 
 
+# What the Script is doing
+# Installing all packages
+# Updating default terminal to kitty
 
 
 PACKAGES=(
     # Tools
     "zsh"
     "kitty"
+    "ranger"
     "ripgrep"
     "xclip"
     "timeshift"
@@ -67,6 +70,7 @@ PACKAGES=(
     "gnome-tweaks"
 )
 
+
 # Loop over Array of packages and output it to console
 for package in "${PACKAGES[*]}";
 do
@@ -83,6 +87,11 @@ done
 sudo update-alternatives --config x-terminal-emulator
 
 
-# TODO
 # Setup Audofiles audio configuration, pulseeffect
-
+sudo cat ./default-configurations/default-audio-daemon/daemon.conf > /etc/pulse/daemon.conf
+    if [ $? = 0 ]
+    then
+        echo -e "${green}OK${NC}: /etc/pulse/daemon.conf successfully configured"
+    else
+        echo -e "${red}Fail${NC}: updating /etc/pulse/daemon.conf"
+    fi

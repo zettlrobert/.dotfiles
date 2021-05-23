@@ -140,3 +140,73 @@ sudo update-alternatives --config x-terminal-emulator
     else
         echo -e "${red}Fail${NC}: updating /etc/pulse/daemon.conf"
     fi
+
+# Fonts
+sudo cp ~/setup/fonts/* /usr/share/fonts
+   if [ $? = 0 ]
+    then
+        echo -e "${green}OK${NC}: fonts copied into /usr/share/fonts"
+    else
+        echo -e "${red}Fail${NC}: fonts not setup"
+    fi
+
+
+#########################################################################
+# Development Setup
+#########################################################################
+
+#########################################################################
+# NODE.JS 
+#########################################################################
+
+# Install Node Version Manager
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+   if [ $? = 0 ]
+    then
+        echo -e "${green}OK${NC}: curled nvm install script"
+    else
+        echo -e "${red}Fail${NC}: curl nvm install script"
+    fi
+
+# Install NVM from curled script
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+   if [ $? = 0 ]
+    then
+        echo -e "${green}OK${NC}: nvm is ready and added to .profile"
+    else
+        echo -e "${red}Fail${NC}: failed installing nvm"
+    fi
+
+# Install Node
+nvm install node
+
+   if [ $? = 0 ]
+    then
+        echo -e "${green}OK${NC}: node succesfully installed"
+    else
+        echo -e "${red}Fail${NC}: node not installed"
+    fi
+
+# Install npm packages
+NODE_PACKAGES=(
+
+)
+
+
+# Loop over Array of packages and output it to console
+for package in "${NODE_PACKAGES[*]}";
+do
+    npm install -g $package -y
+    if [ $? = 0 ]
+    then
+        echo -e "${green}OK${NC}: $package successfully installed"
+    else
+        echo -e "${red}Fail${NC}: $package installation failed"
+    fi
+done
+
+
+

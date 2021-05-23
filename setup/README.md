@@ -36,7 +36,7 @@
 * set status.showUntrackedFiles no
 
 ## Installation Script
-The installation script is located inside .dotfiles, setup.sh
+The installation script is located inside `setup/setup.sh` the folder should get checked out when we clone the dotfiles repo
 
     ./setup.sh
 

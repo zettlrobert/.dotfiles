@@ -56,6 +56,9 @@ PACKAGES=(
     "xclip"
     "timeshift"
     "neofetch"
+    # NTFS
+    "fuse"
+    "ntfs-3g"
     # Media
     "ffmpeg"
     "beets"

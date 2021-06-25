@@ -8,6 +8,20 @@ NC='\e[0m' # No Color
 # Introduction to the setup script
 echo -e "Setup Script starting...\n"
 
+# TODO - Implement where possible
+# echo success of failure depending on command result
+# result $? has to be assigned to a varialbe 
+# and be passed as argument
+function execute_command {
+  eval "$1"
+  if [ $? = 0 ]
+  then
+    echo -e "${green}OK${NC}: "$1" successfully executed"
+  else
+    echo -e "${red}Fail${NC}: "$1""
+  fi
+}
+
 
 # Array of Packages
 # TOOLS
@@ -72,7 +86,8 @@ PACKAGES=(
     "zip"
     "unzip"
     # Audio
-    "pulseaudio"
+    # "pulseaudio" - TODO replace with pipewire
+    "pipewire"
     "pulseeffects"
     # Theming
     "gtk2-engines-murrine"
@@ -80,6 +95,8 @@ PACKAGES=(
     # Fonts
     "fonts-powerline"
     "fonts-firacode"
+    # Easy VM
+    "gnome-boxes"
 )
 
 
@@ -138,6 +155,10 @@ xdg-user-dirs-update
     else
         echo -e "${red}Fail${NC}: xdg-user-dirs updating"
     fi
+
+# Add universe repositorys
+sudo add-apt-repository universe
+sudo apt update
 
 
 # Install all Packages which are not available in package repository.

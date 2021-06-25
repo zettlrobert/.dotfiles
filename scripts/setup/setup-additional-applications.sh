@@ -9,3 +9,7 @@ NC='\e[0m' # No Color
 # Google Chrome
 
 # Spotify
+
+# EFM Langauge Server
+# go get github.com/mattn/efm-langserver
+

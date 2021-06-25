@@ -14,12 +14,13 @@ echo -e "Setup Script starting...\n"
 #####################################################
 #      "zsh"             # Shell with lots of features
 #      "kitty"           # GPU based Terminal
-#      "ranger"          # Filemanager
+#      "ranger"          # file manager
 #      "ripgrep"         # Recursively searches directories for a regex pattern
 #      "bottom"          # A cross-platform graphical process/system monitor
 #      "xclip"           # command line interface to X selections  
 #      "timeshift"       # System restore utility
 #      "neofetch"        # Shows Linux System Information 
+#      "tree"            # Shows folder structure in tree form
 # Media
 #####################################################
 #      "cifs-utils"      # Transcoding, streaming and playing of multimedia files [universe] 
@@ -40,6 +41,7 @@ echo -e "Setup Script starting...\n"
 # Fonts
 #####################################################
 #      "fonts-powerline"      # prompt and statusline utility
+#      "fonts-firacode"       # font for nvim
 
 
 # What the Script is doing
@@ -56,6 +58,9 @@ PACKAGES=(
     "xclip"
     "timeshift"
     "neofetch"
+    "openssh-server"
+    "tree"
+    "code"
     # NTFS
     "fuse"
     "ntfs-3g"
@@ -72,6 +77,9 @@ PACKAGES=(
     # Theming
     "gtk2-engines-murrine"
     "gnome-tweaks"
+    # Fonts
+    "fonts-powerline"
+    "fonts-firacode"
 )
 
 
@@ -87,17 +95,38 @@ do
     fi
 done
 
-# Create directorys in $HOME
-mkdir $HOME/bin $HOME/desktop $HOME/documents $HOME/downloads $HOME/music $HOME/pictures $HOME/public $HOME/templates $HOME/videos $HOME/development
+# Directories to create in $HOME
+# TODO - maybe add them to user-dirs.dirs in ~/.config
+HOMEDIRECTORYS=(
+  'audiobooks'
+  'bin'
+  'containers'
+  'desktop'
+  'documents'
+  'downloads'
+  'music'
+  'pictures'
+  'public'
+  'scripts'
+  'templates'
+  'videos'
+  'vms'
+  'development'
+)
 
-    if [ $? = 0 ]
-    then
-        echo -e "${green}OK${NC}: create base $HOME folder structure"
-    else
-        echo -e "${red}Fail${NC}: failed creating directorys in $HOME"
-    fi
+# Create directories in $HOME
+for directory in "${HOMEDIRECTORYS[*]}"
+do
+  mkdir $HOME/$directory
+  if [ $? = 0 ]
+  then
+    echo -e "${green}OK${NC}: creating base $directory"
+  else
+        echo -e "${red}Fail${NC}: creating $directory"
+  fi
+done
 
-# Remove capital directorys in $HOME
+# Remove capital directories in $HOME
 rm -r $HOME/Desktop $HOME/Documents  $HOME/Downloads $HOME/Music $HOME/Pictures $HOME/Public $HOME/Templates $HOME/Videos
 
 # Update ~ structure to lower case
@@ -111,7 +140,7 @@ xdg-user-dirs-update
     fi
 
 
-# Intall all Packages which are not availalbe in package repository.
+# Install all Packages which are not available in package repository.
 
 ## Bottom Resource Monitor
 function install_bottom () {
@@ -132,7 +161,7 @@ install_bottom
 # Update Default Terminal to Kitty
 sudo update-alternatives --config x-terminal-emulator
 
-# Setup Audofiles audio configuration, pulseeffect
+# Setup Audio files audio configuration, pulseeffects
 # sudo cat ./default-configurations/default-audio-daemon/daemon.conf > /etc/pulse/daemon.conf
    if [ $? = 0 ]
     then
@@ -142,7 +171,7 @@ sudo update-alternatives --config x-terminal-emulator
     fi
 
 # Fonts
-sudo cp ~/setup/fonts/* /usr/share/fonts
+sudo cp ~/scripts/setup/fonts/* /usr/share/fonts
    if [ $? = 0 ]
     then
         echo -e "${green}OK${NC}: fonts copied into /usr/share/fonts"
@@ -150,6 +179,22 @@ sudo cp ~/setup/fonts/* /usr/share/fonts
         echo -e "${red}Fail${NC}: fonts not setup"
     fi
 
+# youtube-dl
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+   if [ $? = 0 ]
+    then
+        echo -e "${green}OK${NC}: youtube-dl succesfully installed /usr/local/bin/youtube-dl, add execute permission"
+    else
+        echo -e "${red}Fail${NC}: youtube-dl install"
+    fi
+
+sudo chmod a+rx /usr/local/bin/youtube-dl
+   if [ $? = 0 ]
+    then
+        echo -e "${green}OK${NC}: youtube-dl can now be executed"
+    else
+        echo -e "${red}Fail${NC}: youtube-dl does not have execution permission"
+    fi
 
 #########################################################################
 # Development Setup
@@ -185,7 +230,7 @@ nvm install node
 
    if [ $? = 0 ]
     then
-        echo -e "${green}OK${NC}: node succesfully installed"
+        echo -e "${green}OK${NC}: node successfully installed"
     else
         echo -e "${red}Fail${NC}: node not installed"
     fi
@@ -208,5 +253,35 @@ do
     fi
 done
 
+#########################################################################
+# PYTHON 
+#########################################################################
+sudo add-apt-repository ppa:deadsnakes/ppa
 
+if [ $? = 0 ]
+then
+        echo -e "${green}OK${NC}: added deadsnakes python repository"
+else
+        echo -e "${red}Fail${NC}: could not add deadsnakes python repository"
+fi
+
+sudo apt update
+
+sudo apt install python3.10
+
+if [ $? = 0 ]
+then
+        echo -e "${green}OK${NC}: installing python call with python3"
+else
+        echo -e "${red}Fail${NC}: installing python"
+fi
+
+sudo ln -s /usr/bin/python3.10 /usr/bin/python
+
+if [ $? = 0 ]
+then
+        echo -e "${green}OK${NC}: symlink for python 3.10 setup"
+else
+        echo -e "${red}Fail${NC}: symlink for python3.10"
+fi
 

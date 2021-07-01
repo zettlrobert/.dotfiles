@@ -10,8 +10,8 @@ echo -e "Setup Script starting...\n"
 
 # TODO - Implement where possible
 # echo success of failure depending on command result
-# result $? has to be assigned to a varialbe 
-# and be passed as argument
+# command result $? = 0 => success 
+# pass arguemts as "$arg01"
 function execute_command {
   eval "$1"
   if [ $? = 0 ]

@@ -48,6 +48,21 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 
 #######################################################################################################################
+# Android
+#######################################################################################################################
+export ANDROID_SDK_ROOT=$HOME/bin/Android/Sdk 
+export ANDROID_HOME=$HOME/bin/Android/Sdk
+
+# avdmanager, sdkmanager
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+
+# adb, logcat
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+# emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+
+#######################################################################################################################
 # GO
 #######################################################################################################################
 export PATH=$PATH:/usr/local/go/bin

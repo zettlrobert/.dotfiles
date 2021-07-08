@@ -30,6 +30,7 @@ PACKAGES=(
     "openssh-server"
     "tree"
     "code"
+	"cifs-utils"
     # NTFS
     "fuse"
     "ntfs-3g"

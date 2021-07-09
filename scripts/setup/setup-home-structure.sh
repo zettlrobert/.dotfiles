@@ -31,6 +31,7 @@ HOMEDIRECTORYS=(
   'downloads'
   'music'
   'pictures'
+  'projects'
   'public'
   'scripts'
   'templates'

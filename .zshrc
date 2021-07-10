@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/zettlrobert/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="garyblessington"
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_TITLE="true"
 
@@ -70,9 +70,6 @@ export PATH=$PATH:/usr/local/go/bin
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/development/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
-
-
 
 
 

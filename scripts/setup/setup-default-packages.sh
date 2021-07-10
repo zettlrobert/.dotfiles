@@ -2,7 +2,7 @@
 
 # OUTPUT-COLORING
 red='\e[0;31m'
-green='\e[0;32m'
+-green='\e[0;32m'
 
 # Introduction to the setup script
 echo -e "Installing packages...\n"
@@ -26,6 +26,7 @@ PACKAGES=(
     "ripgrep"
     "xclip"
     "timeshift"
+    "deja-dup"
     "neofetch"
     "openssh-server"
     "tree"

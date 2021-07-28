@@ -45,6 +45,8 @@ PACKAGES=(
     # Theming
     "gtk2-engines-murrine"
     "gnome-tweaks"
+    # build dependencie for generating themes
+    "sassc"
     # Fonts
     "fonts-powerline"
     "fonts-firacode"

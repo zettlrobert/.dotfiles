@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/zettlrobert/.oh-my-zsh"
 ZSH_THEME="garyblessington"
+ZSH_THEME="afowler"
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_TITLE="true"
 
@@ -20,6 +21,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 alias bat='batcat'
+
+#######################################################################################################################
+# Projects
+#######################################################################################################################
+alias eventprofil='cd ~/development/web/eventprofil'
+
 
 #######################################################################################################################
 # Navigation

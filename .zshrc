@@ -32,7 +32,7 @@ alias eventprofil='cd ~/development/web/eventprofil'
 # Navigation
 #######################################################################################################################
 alias webdev="cd $HOME/development/web"
-alias godev="cs $HOME/development/go/src/github.com/zettlrobert/"
+alias godev="cd $HOME/development/go/src/github.com/zettlrobert/"
 
 
 #######################################################################################################################

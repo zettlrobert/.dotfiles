@@ -27,17 +27,19 @@ HOMEDIRECTORYS=(
   'bin'
   'containers'
   'desktop'
+  'development'
   'documents'
   'downloads'
+  'misc'
   'music'
   'pictures'
   'projects'
   'public'
   'scripts'
   'templates'
+  'test'
   'videos'
   'vms'
-  'development'
 )
 
 # Create directories in $HOME
@@ -47,6 +49,7 @@ do
   execute_command "$command"
 done
 
+# Default directories before modification
 DEFAULTDIRECTORYS=(
   'Desktop'
   'Documents'

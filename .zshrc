@@ -26,6 +26,7 @@ alias bat='batcat'
 # Projects
 #######################################################################################################################
 alias eventprofil='cd ~/development/web/eventprofil'
+alias fsc-lib='cd /media/zettlrobert/348467f7-b4c5-4602-b597-1c32fbd953ba/home/robertzettl/Development/FSC/component-library'
 
 
 #######################################################################################################################
@@ -39,6 +40,9 @@ alias godev="cd $HOME/development/go/src/github.com/zettlrobert/"
 # Applications
 #######################################################################################################################
 alias bitwarden="cd $HOME/bin/Bitwarden/ && ./Bitwarden-*.AppImage &"
+alias obsidian="cd $HOME/bin/Obsidian/ && ./Obsidian-*.AppImage &"
+alias postman="cd $HOME/bin/Postman/ && ./Postman &"
+alias burniso="cd $HOME/bin/BalenaEtcher/ && ./balenaEtcher-*.AppImage &"
 
 
 #######################################################################################################################

@@ -22,13 +22,14 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 alias bat='batcat'
 
-#######################################################################################################################
+######################################################################################################################
 # Projects
 #######################################################################################################################
 alias eventprofil='cd ~/development/web/eventprofil'
 alias fsc-lib='cd /media/zettlrobert/348467f7-b4c5-4602-b597-1c32fbd953ba/home/robertzettl/Development/FSC/component-library'
 alias eiga='cd ~/development/web/eiga'
 alias as24='cd ~/development/web/autoscout24'
+alias mobileheads='cd ~/development/web/mobileheads'
 
 
 #######################################################################################################################

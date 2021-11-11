@@ -25,6 +25,7 @@ PACKAGES=(
     "ranger"
     "ripgrep"
     "xclip"
+    "exa"
     "timeshift"
     "deja-dup"
     "neofetch"
@@ -32,6 +33,7 @@ PACKAGES=(
     "tree"
     "code"
 	"cifs-utils"
+    "nmap"
     # NTFS
     "fuse"
     "ntfs-3g"

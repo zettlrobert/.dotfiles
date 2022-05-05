@@ -39,6 +39,7 @@ PACKAGES=(
     "ntfs-3g"
     # Media
     "ffmpeg"
+    "webp" # Convert webp to png
     "beets"
     "deluge"
     # Archives

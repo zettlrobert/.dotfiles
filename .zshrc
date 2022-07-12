@@ -1,6 +1,8 @@
 
 export ZSH="/home/zettlrobert/.oh-my-zsh"
-ZSH_THEME="garyblessington"
+# ZSH_THEME="refined"
+# ZSH_THEME="suvash"
+# ZSH_THEME="garyblessington"
 ZSH_THEME="afowler"
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_TITLE="true"

@@ -7,6 +7,7 @@
 # Example install plugins
 plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
+plug "zap-zsh/fzf"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 

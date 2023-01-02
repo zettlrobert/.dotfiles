@@ -8,6 +8,7 @@
 plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
 plug "zap-zsh/fzf"
+plug "Aloxaf/fzf-tab"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 

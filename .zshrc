@@ -86,3 +86,5 @@ export GOPATH=$HOME/development/go
 
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+if [ -e /home/zettlrobert/.nix-profile/etc/profile.d/nix.sh ]; then . /home/zettlrobert/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

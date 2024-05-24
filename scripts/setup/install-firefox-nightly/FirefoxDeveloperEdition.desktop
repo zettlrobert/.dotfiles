@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox Nightly
+StartupWMClass="firefox-aurora", "Firefox Developer Edition"
+GenericName=Web Browser
+Exec=/opt/firefox-nightly/firefox
+Terminal=false
+Icon=/opt/firefox-nightly/browser/chrome/icons/default/default128.png
+Type=Application
+Categories=Network;WebBrowser;Favorites;
+StartupNotify=true
+Keywords=web;browser;internet;
+Actions=new-window;new-private-window;
+StartupWMClass=Firefox Nightly
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+X-Ayatana-Desktop-Shortcuts=NewWindow;NewIncognito"
